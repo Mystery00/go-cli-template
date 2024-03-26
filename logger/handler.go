@@ -55,13 +55,7 @@ func (h *CliHandler) Handle(ctx context.Context, r slog.Record) error {
 	}
 	msg = append(msg, r.Message)
 	r.Attrs(func(attr slog.Attr) bool {
-		if attr.Key != badKey {
-			msg = append(msg, attr.Key)
-		}
-		v := attr.Value.Any()
-		if v != nil {
-			msg = append(msg, fmt.Sprintf("%v", v))
-		}
+		msg = append(msg, fmt.Sprintf("%s=%v", attr.Key, attr.Value.Any()))
 		return true
 	})
 

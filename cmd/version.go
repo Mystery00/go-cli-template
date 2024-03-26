@@ -33,9 +33,9 @@ var versionCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		x := color.RedString("♥")
 		a := color.CyanString(author)
-		slog.Info("CLI Version:", color.RedString("[%s]", version))
-		slog.Info("Go Version:", color.GreenString("[%s]", GoVersion))
-		slog.Info("Build Time:", color.BlueString("[%s]", BuildTime))
-		slog.Info("  —— Made with", x, "by", a)
+		slog.Info(fmt.Sprintf("CLI Version: %s", color.RedString("[%s]", version)))
+		slog.Info(fmt.Sprintf("Go Version: %s", color.GreenString("[%s]", GoVersion)))
+		slog.Info(fmt.Sprintf("Build Time: %s", color.BlueString("[%s]", BuildTime)))
+		slog.Info(fmt.Sprintf("  —— Made with %s by %s", x, a))
 	},
 }
