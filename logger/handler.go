@@ -8,8 +8,6 @@ import (
 	"log/slog"
 )
 
-const badKey = "!BADKEY"
-
 type CliHandler struct {
 	slog.Handler
 	w           io.Writer
